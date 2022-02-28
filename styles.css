@@ -1,0 +1,34 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+
+#title {
+    background-color: #aaa;
+
+}
+
+
+#button {
+    background-color: #aaa;
+}
+
+
+
+#wrapper {
+    padding: 10px 20px;
+    border-bottom: 1px solid #aaa;
+    background: beige;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: max-content;
+    margin-top: 30px;
+    gap: 10px;
+    text-align: center;
+    width: 30%;
+}
