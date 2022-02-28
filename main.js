@@ -1,22 +1,6 @@
 "use strict";
 
 
-// Denna ska skapa en ny film 
-function createNewMovie (title, director, imdbScore, year) {
-    let movie = {
-        title: title,
-        director: director,
-        imdbScore: imdbScore,
-        year: year,
-    };
-    return movie;
-}
-
-function addMovieToDatabase(database, movie) {
-    database.push(movie);
-}
-
-
 function renderMovie(movie) {
     let div = document.createElement("div"); //Deklarerar div och säger att den ska skapa ett "div" element i HTML
     div.classList.add("movie"); //diven som skapas får classen: "movie"
@@ -36,19 +20,47 @@ function renderMovie(movie) {
 
 function renderMovies(movies) {
 
-    let moviesElement = document.getElementById("movies");
-    moviesElement.innerHTML = "";
+    let moviesElement = document.getElementById("movies"); //Deklarerar moviesElement som nu selectar id:t movies i html.
+    moviesElement.innerHTML = ""; // MoviesElement kommer ha inner HTML som är tomt varje gång det uppdateras så att det inte blir dubbelt.
 
-
+    // Denna skapar en loop som sen renderar alla filmer i arrayen (database) och lägger dem under id:t "movies".
     for (let movie of movies) {
         let movieElement = renderMovie(movie);
         moviesElement.appendChild(movieElement);
-    }
-
-
-
+    } 
 
 }
 
-renderMovies(database)
 
+// --------------
+
+// Här skapar jag en ny film och sen tar tillbaka det
+function createNewMovie(title, director, imdbRating, releaseYear) {
+    let movie = {
+        title: title,
+        director: director,
+        imdbRating: imdbRating,
+        releaseYear: releaseYear,
+    }
+
+    return movie;
+}
+
+// Sen skickar jag den filmen jag skapat till database (arrayen)
+function addMovieToDatabase(database, movie) {
+    database.push(movie);
+}
+
+/* prova genoma att skriva i konsollen: 
+let filmensTitel = createNewMovie("title", "director", 1, 1);
+addMovieToDatabase(database, filmensTitel)
+renderMovies(database)
+*/
+
+
+
+
+
+
+
+renderMovies(database)
