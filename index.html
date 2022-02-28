@@ -10,16 +10,51 @@
 <body>
 
 
-    <h1 id="title">Titel på detta kommer snart</h1>
+    <h1>Titel på detta kommer snart</h1>
+
+    <form id="add-new-movie">
+        <input id="title" type="text" placeholder="Title">
+        <input id="director" type="text" placeholder="Director">
+        <input id="imdbScore" type="number" placeholder="IMDB Rating">
+        <input id="Year" type="number" placeholder="Year of Release">
+        <button id="button" type="button">Add New</button>
+    </form>
+
+
+    <div id="filters">
+        <form id="filter-by-title">
+            <input id="filter-title" type="text" placeholder="Filter by Title">
+            <button>Filter</button>
+        </form>
+        <form id="filter-by-director">
+            <input id="filter-director" type="text" placeholder="Filter by Director">
+            <button>Filter</button>
+        </form>
+        <form id="filter-by-rating">
+            <input id="filter-score" type="number" placeholder="Filter by IMDB rating">
+            <button>Filter</button>
+        </form>
+        <form id="filter-by-release">
+            <input id="filter-release" type="number" placeholder="Filter by year of release">
+            <button>Filter</button>
+        </form>
+
+        <button id="clear-filters" type="button">Clear filters</button>
+
+
+    </div>
+
 
     <div id="wrapper">
-        <button id="button" type="button">Add New</button>
+        
         <div>Title</div>
         <div>Director</div>
         <div>IMDB Score</div>
-        <div>Year</div>
+        <div>Release</div>
     </div>
 
+
+    <div id="movies"></div>
 
 
 
