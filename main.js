@@ -28,6 +28,7 @@ function renderMovies(movies) {
         let movieElement = renderMovie(movie);
         moviesElement.appendChild(movieElement);
     } 
+    setRemoveMovies()
 
 }
 
@@ -86,5 +87,45 @@ function setAddMovie() {
 
 // Här över är mina funktioner för att adda filmer från formuläret
 
+
+//Här är mina funktioner för att ta bort en film från listan genom att trycka på knappen (remove)
+function removeMovieById(movies, id) {
+    for (let i = 0; i < movies.length; i++) {
+        let movie = movies[i];
+
+
+        if (movie.id == id) {
+
+            movies.splice(i, 1);
+            return;
+        }
+    }
+
+}
+
+// När någon klickar på knappen ska detta hända
+function clickToRemoveMovie(event) {
+    let button = event.target;
+    let id = button.parentElement.id;
+
+    removeMovieById(database, id);
+    renderMovies(database);
+}
+
+// lägger till eventet så att det hamnar på alla knappar för att ta bort filmen
+function setRemoveMovies() {
+
+    let buttons = document.querySelectorAll(".movie button");
+
+    for (let button of buttons) {
+        button.addEventListener("click", clickToRemoveMovie);
+    }
+
+}
+
+
+
+
 setAddMovie()
 renderMovies(database)
+setRemoveMovies()
