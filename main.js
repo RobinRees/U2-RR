@@ -2,20 +2,20 @@
 
 
 function renderMovie(movie) {
-    let div = document.createElement("div"); //Deklarerar div och säger att den ska skapa ett "div" element i HTML
-    div.classList.add("movie"); //diven som skapas får classen: "movie"
-    div.id = movie.id; // diven som skapas får obejetet .id
+    let li = document.createElement("li"); //Deklarerar div och säger att den ska skapa ett "div" element i HTML
+    li.classList.add("movie"); //diven som skapas får classen: "movie"
+    li.id = movie.id; // diven som skapas får obejetet .id
 
 
     //den div vi skapar får följande HTML kod i sig. ${movie.X} betyder att det ska stå vad det gör i just det minnet av arrayen.
-    div.innerHTML = ` 
-    <div>${movie.title}</div>
+    li.innerHTML = ` 
+    <li>${movie.title}</li>
     <div>${movie.director}</div>
     <div>${movie.imdbRating}</div>
     <div>${movie.releaseYear}</div>
     <button type="button">Remove</button>
     `;
-    return div;
+    return li;
 }
 
 function renderMovies(movies) {
@@ -84,7 +84,7 @@ function setAddMovie() {
     form.addEventListener("submit", onAddMovieSubmit);
 }
 
-
+// Här över är mina funktioner för att adda filmer från formuläret
 
 setAddMovie()
 renderMovies(database)
