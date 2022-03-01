@@ -58,9 +58,33 @@ renderMovies(database)
 */
 
 
+function onAddMovieSubmit(event) {
+    event.preventDefault();
+    //deklarerar olika variablar och säger att dem ska hitta elementet med id (title)... Dvs inputen i formuläret i HTML
+    let title = document.getElementById("title").value;
+    let director = document.getElementById("director").value;
+    let imdbRating = Number(document.getElementById("imdbRating").value);
+    let releaseYear = Number(document.getElementById("releaseYear").value);
+
+    let movie = createNewMovie(title, director, imdbRating, releaseYear);
+
+    // följande id får nya hunden
+    movie.id = database[database.length - 1].id + 1;
+
+    addMovieToDatabase(database, movie);
+    renderMovies(database);
+
+    // Gör alla tomma efter man skrivit in vad man vill ha
+    let form = document.getElementById("add-new-movie");
+    form.reset();
+}
+
+function setAddMovie() {
+    let form = document.getElementById("add-new-movie");
+    form.addEventListener("submit", onAddMovieSubmit);
+}
 
 
 
-
-
+setAddMovie()
 renderMovies(database)
