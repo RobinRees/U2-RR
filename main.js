@@ -125,9 +125,8 @@ function setRemoveMovies() {
 
 // här över är ta bort funtkionen
 
-// Filter Nedan
-// Här ska man kunna filtrera filmer beroende på dess titel
-function filterMovieTitle(movies, title) {
+// Funktion för att filtrera filmer efter film titlar
+function getByMovieTitle(movies, title) {
     let movieByTitle = [];
 
     for (let movie of movies) {
@@ -138,7 +137,18 @@ function filterMovieTitle(movies, title) {
     return movieByTitle;
 }
 
-function filterMovieDirector(movies, director) {
+function filterMovieTitle (event) {
+    event.preventDefault();
+
+    let title = document.getElementById("filter-title").value;
+
+    let movies = getByMovieTitle(database, title);
+
+    renderMovies(movies);
+}
+
+//Funktioner för att filtrera filmer efter director
+function getByMovieDirector(movies, director) {
     let movieByDirector = [];
 
     for (let movie of movies) {
@@ -148,30 +158,117 @@ function filterMovieDirector(movies, director) {
     }
     return movieByDirector;
 }
+function filterMovieDirector (event) {
+    event.preventDefault();
 
-function filterMovieRating(movies, imdbRating) {
+    let director = document.getElementById("filter-director").value;
+
+    let movies = getByMovieDirector(database, director);
+
+    renderMovies(movies);
+}
+
+//Funktioner för att filtrera efter IMDB - Rating
+
+function getByMovieRating(movies, imdbRating) {
     let movieByRating = [];
 
     for (let movie of movies) {
-        if (movie.imdbRating.toLowerCase() == imdbRating.toLowerCase()) {
+        if (movie.imdbRating == imdbRating) {
             movieByRating.push(movie);
         }
     }
     return movieByRating;
 }
 
-function filterReleaseYear(movies, releaseYear) {
+function filterImdbRating (event) {
+    event.preventDefault();
+
+    let imdbRating = document.getElementById("filter-rating").value;
+
+    let movies = getByMovieRating(database, imdbRating);
+
+    renderMovies(movies);
+}
+
+//Funktioner för att filtrera efter release Year
+function getByReleaseYear(movies, releaseYear) {
     let movieByReleaseYear = [];
 
     for (let movie of movies) {
-        if (movie.releaseYear.toLowerCase() == releaseYear.toLowerCase()) {
+        if (movie.releaseYear == releaseYear) {
             movieByReleaseYear.push(movie);
         }
     }
     return movieByReleaseYear;
 }
 
+function filterByYear (event) {
+    event.preventDefault();
+
+    let releaseYear = document.getElementById("filter-release").value;
+    let movies = getByReleaseYear(database, releaseYear);
+
+    renderMovies(movies);
+}
+
+// Clear filter funktion nedan. 
+// Denna tömmer rutorna med text och renderar filmerna i database
+function setClearFilters() {
+    document.getElementById("filter-release").value ="";
+    document.getElementById("filter-rating").value ="";
+    document.getElementById("filter-title").value ="";
+    document.getElementById("filter-director").value ="";
+
+    renderMovies(database);
+}
 
 
-setAddMovie()
-renderMovies(database)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function setFilterMovies() {
+
+
+    let titleForm = document.getElementById("filter-by-title");
+    let directorForm = document.getElementById("filter-by-director");
+    let ratingForm = document.getElementById("filter-by-rating");
+    let releaseYear = document.getElementById("filter-by-release");
+    let clearFilters = document.getElementById("clear-filters");
+
+
+    titleForm.addEventListener("submit", filterMovieTitle);
+    directorForm.addEventListener("submit", filterMovieDirector);
+    ratingForm.addEventListener("submit", filterImdbRating);
+    releaseYear.addEventListener("submit", filterByYear);
+    clearFilters.addEventListener("click", setClearFilters)
+
+
+
+
+
+}
+
+
+
+
+
+
+setAddMovie();
+renderMovies(database);
+setFilterMovies();
