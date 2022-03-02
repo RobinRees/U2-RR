@@ -123,9 +123,55 @@ function setRemoveMovies() {
 
 }
 
+// här över är ta bort funtkionen
+
+// Filter Nedan
+// Här ska man kunna filtrera filmer beroende på dess titel
+function filterMovieTitle(movies, title) {
+    let movieByTitle = [];
+
+    for (let movie of movies) {
+        if (movie.title.toLowerCase() == title.toLowerCase()) {
+            movieByTitle.push(movie);
+        }
+    }
+    return movieByTitle;
+}
+
+function filterMovieDirector(movies, director) {
+    let movieByDirector = [];
+
+    for (let movie of movies) {
+        if (movie.director.toLowerCase() == director.toLowerCase()) {
+            movieByDirector.push(movie);
+        }
+    }
+    return movieByDirector;
+}
+
+function filterMovieRating(movies, imdbRating) {
+    let movieByRating = [];
+
+    for (let movie of movies) {
+        if (movie.imdbRating.toLowerCase() == imdbRating.toLowerCase()) {
+            movieByRating.push(movie);
+        }
+    }
+    return movieByRating;
+}
+
+function filterReleaseYear(movies, releaseYear) {
+    let movieByReleaseYear = [];
+
+    for (let movie of movies) {
+        if (movie.releaseYear.toLowerCase() == releaseYear.toLowerCase()) {
+            movieByReleaseYear.push(movie);
+        }
+    }
+    return movieByReleaseYear;
+}
 
 
 
 setAddMovie()
 renderMovies(database)
-setRemoveMovies()
