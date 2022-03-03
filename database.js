@@ -62,11 +62,12 @@ let database = [
         director: "Michael Keusch",
         imdbRating: 2.8,
         releaseYear: 2006,
-    },    {
+    },    
+    {
         id: 10,
         title: "Against the Dark",
         director: "Richard Crudo",
         imdbRating: 3.1,
         releaseYear: 2009,
-    },
+    },    
 ];

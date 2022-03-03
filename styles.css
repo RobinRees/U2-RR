@@ -1,78 +1,93 @@
 body {
+    margin: 0px;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    background-color: beige;
+    overflow: scroll;
+
+    
+
+}
+
+#ruta {
+    display: grid;
+    grid-template-areas: 
+    "title title title"
+    "add-new add-new filter"
+    "wrapper wrapper filter"
+    "movies movies filter";
+    grid-template-rows: 50px 40px 30px 1fr;
+    grid-template-columns: 300px 300px 150px;
+    gap: 10px;
+    background-color: rgba(226, 226, 124, 0.568);
+    width: max-content;
 
 
 }
 
-h1{
-    background-color: #aaa;
-
-}
-
-
-#button {
-    background-color: #aaa;
+h1 {
+    margin: 0px;
+    grid-area: title;
+    background-color: pink;
+    text-align: center;
 }
 
 #filters {
-    padding: 10px 20px;
-    border-bottom: 1px solid #aaa;
-    background: beige;
-    display: flex;
-    margin-top: 30px;
-    gap: 10px;
-    text-align: center;
-    width: 500px
+    grid-area: filter;
+    background-color: aqua;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 3px;
+
 }
 
 #filters > form {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+
 }
 
-
-#wrapper {
-    padding: 10px 20px;
-    border-bottom: 1px solid #aaa;
-    background: beige;
+#add-new-movie {
+    grid-area: add-new;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    height: max-content;
-    gap: 10px;
-    text-align: center;
-    width: 500px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: black;
+}
+
+#add-new-movie > input {
+    width: 100px;    
+}
+
+ol {
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    list-style-position: inside;
 }
 
 #movies {
-    padding: 10px 20px;
-    border-bottom: 1px solid #aaa;
-    background: beige;
-    display: flex;
-    flex-direction: column;
-    height: max-content;
-    gap: 10px;
-    text-align: center;
-    width: 500px;
+    grid-area: movies;
 }
 
-
-#movies > li {
+#movies > li{
+    background-color: hotpink;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr
 
 }
 
-#movies > div > button {
-    
+#wrapper {
+    grid-area: wrapper;
+    background-color: lightcoral;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
 
 }
+
+
+
 
 
 

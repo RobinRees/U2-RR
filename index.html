@@ -9,58 +9,54 @@
 </head>
 <body>
 
+    <div id="ruta">
+        <h1>Filmer med Steven Seagall</h1>
 
-    <h1>Titel på detta kommer snart</h1>
-
-    <form id="add-new-movie">
-        <input id="title" type="text" placeholder="Title">
-        <input id="director" type="text" placeholder="Director">
-        <input id="imdbRating" type="number" placeholder="IMDB Rating">
-        <input id="releaseYear" type="number" placeholder="Year of Release">
-        <button>Add New</button>
-    </form>
-
-
-    <div id="filters">
-        <form id="filter-by-title">
-            <input id="filter-title" type="text" placeholder="Filter Title">
-            <button>Filter</button>
-        </form>
-        <form id="filter-by-director">
-            <input id="filter-director" type="text" placeholder="Filter Director">
-            <button>Filter</button>
-        </form>
-        <form id="filter-by-rating">
-            <input id="filter-rating" type="number" step="any" placeholder="Filter IMDB rating">
-            <button>Filter</button>
-        </form>
-        <form id="filter-by-release">
-            <input id="filter-release" type="number" placeholder="Filter release">
-            <button>Filter</button>
+        <form id="add-new-movie">
+            <input id="title" type="text" placeholder="Title">
+            <input id="director" type="text" placeholder="Director">
+            <input id="imdbRating" type="number" type="number" value="0" min="0.0" max="10.0" step="0.1" placeholder="IMDB Rating">
+            <input id="releaseYear" type="number" value="1988" min="1988" max="2025"  placeholder="Year of Release">
+            <button>Add New</button>
         </form>
 
-        <button id="clear-filters" type="button">Clear filters</button>
+
+        <div id="filters">
+            <form id="filter-by-title">
+                <input id="filter-title" type="text" placeholder="Filter Title">
+                <button>Filter</button>
+            </form>
+            <form id="filter-by-director">
+                <input id="filter-director" type="text" placeholder="Filter Director">
+                <button>Filter</button>
+            </form>
+            <form id="filter-by-rating">
+                <input id="filter-rating" type="number" value="0" min="0.0" max="10.0" step="0.1" placeholder="Filter IMDB rating">
+                <button>Filter</button>
+            </form>
+            <form id="filter-by-release">
+                <input id="filter-release" type="number" value="1988" min="1988" max="2025" placeholder="Filter release">
+                <button>Filter</button>
+            </form>
+
+            <button id="clear-filters" type="button">Clear filters</button>
 
 
-    </div>
+        </div>
+        <div id="wrapper">
+            
+            <div>Title</div>
+            <div>Director</div>
+            <div>IMDB</div>
+            <div>Release</div>
+        </div>
 
 
-    <div id="wrapper">
+
         
-        <div>Title</div>
-        <div>Director</div>
-        <div>IMDB Rating</div>
-        <div>Release</div>
+
+        <ol id="movies" type="1"></ol>
     </div>
-
-
-    <ol id="movies" type="1"></ol>
-
-
-
-
-
-
     <script src="database.js"></script>
     <script src="main.js"></script>
 </body>
