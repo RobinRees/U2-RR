@@ -48,8 +48,14 @@ function createNewMovie(title, director, imdbRating, releaseYear) {
 }
 
 // Sen skickar jag den filmen jag skapat till database (arrayen)
+// adda även en confirmation till att lägga till filmer
 function addMovieToDatabase(database, movie) {
-    database.push(movie);
+    let addMovieConfirmation = confirm(`Do you want to add ${movie.title} to the list of awesome Steven Seagall movies?`);
+
+    if (addMovieConfirmation) {
+        database.push(movie);
+    }
+
 }
 
 /* prova genoma att skriva i konsollen: 
@@ -67,6 +73,20 @@ function onAddMovieSubmit(event) {
     let imdbRating = Number(document.getElementById("imdbRating").value);
     let releaseYear = Number(document.getElementById("releaseYear").value);
 
+    if(title == ""){
+        return alert("Please fill in all the necessary information");
+    }
+    else if(director == ""){
+        return alert("Please fill in all the necessary information");
+    }
+    else if(imdbRating == ""){
+        return alert("Please fill in all the necessary information");
+    }
+    else if(releaseYear == ""){
+        return alert("Please fill in all the necessary information");
+    }
+
+    
     let movie = createNewMovie(title, director, imdbRating, releaseYear);
 
     // följande id får nya hunden
@@ -223,46 +243,39 @@ function setClearFilters() {
     renderMovies(database);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Sätter filter funktionerna i spinn.
 function setFilterMovies() {
-
-
     let titleForm = document.getElementById("filter-by-title");
     let directorForm = document.getElementById("filter-by-director");
     let ratingForm = document.getElementById("filter-by-rating");
     let releaseYear = document.getElementById("filter-by-release");
     let clearFilters = document.getElementById("clear-filters");
 
-
     titleForm.addEventListener("submit", filterMovieTitle);
     directorForm.addEventListener("submit", filterMovieDirector);
     ratingForm.addEventListener("submit", filterImdbRating);
     releaseYear.addEventListener("submit", filterByYear);
     clearFilters.addEventListener("click", setClearFilters)
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
