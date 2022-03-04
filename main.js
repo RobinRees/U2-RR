@@ -1,5 +1,9 @@
 'use strict'
 
+// Min github länk:
+// https://github.com/RobinRees/U2-RR.git
+
+
 function renderMovie (movie) {
   let li = document.createElement('li') //Deklarerar div och säger att den ska skapa ett "div" element i HTML
   li.classList.add('movie') //diven som skapas får classen: "movie"
