@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmer med Steven Seagal</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+        </style> 
 </head>
 <body>
+
 
     <div id="ruta">
         <h1>Filmer med Steven Seagall</h1>
@@ -17,11 +21,12 @@
             <input id="director" type="text" placeholder="Director">
             <input id="imdbRating" type="number" type="number" value="0" min="0.0" max="10.0" step="0.1" placeholder="IMDB Rating">
             <input id="releaseYear" type="number" value="1988" min="1988" max="2025"  placeholder="Year of Release">
-            <button>Add New</button>
+            <button>Add New Movie</button>
         </form>
 
 
         <div id="filters">
+            <h2>Filters</h2>
             <form id="filter-by-title">
                 <input id="filter-title" type="text" placeholder="Filter Title">
                 <button>Filter</button>
@@ -41,8 +46,10 @@
 
             <button id="clear-filters" type="button">Clear filters</button>
 
-
         </div>
+
+
+
         <div id="wrapper">
             
             <div>Title</div>
@@ -52,12 +59,23 @@
         </div>
 
 
-
+        <div id="container">
+            <div id="inner_container">
+                 <img id="image_shower"/>
+            </div>
+            <div id="button_container">
+                <button id="imgButton" onclick="get_random_image()">Click Me!</button>
+            </div>
+        </div>
         
 
         <ol id="movies" type="1"></ol>
     </div>
+
+
+
     <script src="database.js"></script>
     <script src="main.js"></script>
+    <script src="imgArray.js"></script>
 </body>
 </html>

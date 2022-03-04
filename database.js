@@ -69,5 +69,26 @@ let database = [
         director: "Richard Crudo",
         imdbRating: 3.1,
         releaseYear: 2009,
-    },    
+    },
+    {
+        id: 11,
+        title: "Sniper: Special Ops",
+        director: "Fred Olen Ray",
+        imdbRating: 3.1,
+        releaseYear: 2016,
+    },
+    {
+        id: 12,
+        title: "Against the Dark",
+        director: "Richard Crudo",
+        imdbRating: 3.1,
+        releaseYear: 2009,
+    },
+    {
+        id: 13,
+        title: "The Perfect Weapon",
+        director: "Titus Paar",
+        releaseYear: 2016,
+        imdbRating: 3.0,
+    }
 ];
